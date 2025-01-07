@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2loa3jh72kf3"]
+
+[ext_resource type="Texture2D" uid="uid://0r2mtcp0jgoa" path="res://Textures/white_tiles.png" id="1_svuut"]
+[ext_resource type="PackedScene" uid="uid://cflyy2iicfsyp" path="res://player.tscn" id="2_tqwhy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5hlo"]
+size = Vector2(98, 637.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc5y2"]
+size = Vector2(1146.5, 68)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Paredes" type="StaticBody2D" parent="."]
+position = Vector2(6, 20)
+
+[node name="Esquerda" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(41, 298)
+shape = SubResource("RectangleShape2D_f5hlo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paredes/Esquerda"]
+position = Vector2(0.5, 4.01319)
+scale = Vector2(0.547872, 2.40139)
+texture = ExtResource("1_svuut")
+
+[node name="Direita" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(1095, 301)
+shape = SubResource("RectangleShape2D_f5hlo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paredes/Direita"]
+position = Vector2(1, -1.00005)
+scale = Vector2(0.542553, 2.40892)
+texture = ExtResource("1_svuut")
+
+[node name="Chao" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(567, 590)
+shape = SubResource("RectangleShape2D_rc5y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paredes/Chao"]
+position = Vector2(7.49995, -17.2708)
+scale = Vector2(6.22872, 0.38863)
+texture = ExtResource("1_svuut")
+
+[node name="Player" parent="." instance=ExtResource("2_tqwhy")]
+position = Vector2(206, 422)
